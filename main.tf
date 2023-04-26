@@ -3,8 +3,16 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
-variable "subject" {
-   type = string
+variable "values" {
+
+  type = object({
+    subject = optional(string)
+  })
+
+  default = {
+    subject  = "world"
+  }
+
 }
 
 output "hello_world" {
